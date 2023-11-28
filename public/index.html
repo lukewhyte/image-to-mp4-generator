@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Image to Slideshow Converter</title>
+</head>
+
+<body>
+  <h1>Image to Slideshow Converter</h1>
+  <input type="file" id="imageInput" accept=".jpg, .jpeg, .png, .avif" multiple>
+  <button id="convertButton">Convert to Slideshow</button>
+  <a id="downloadLink" style="display: none">Download Slideshow</a>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById("convertButton").addEventListener("click", async (e) => {
+        e.preventDefault()
+
+        const imageFiles = document.getElementById("imageInput").files;
+
+        if (imageFiles.length < 1) {
+          return alert('Add the images dummy');
+        }
+
+        const formData = new FormData();
+        for (const file of imageInput.files) {
+          formData.append("imagefiles", file, file.name);
+        }
+
+        const response = await fetch("/convert_images_to_slideshow", {
+          method: "POST",
+          body: formData,
+        })
+
+        if (!response.ok) {
+          const { error } = await response.json();
+          return alert(`HTTP error! Status: ${response.status} – ${error || 'unknown'}`);
+        }
+
+        const { msg } = await response.json();
+        return alert(msg);
+      });
+    });
+  </script>
+</body>
+
+</html>
