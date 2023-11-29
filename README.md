@@ -1,6 +1,6 @@
 # Image to mp4 generator
 
-The only file that is likely of value here is [mp4-generator.mjs](mp4-generator.mjs) (using .mjs for the homies). It did my best to add comments and keep it dry.
+The only file that is likely of value here is [mp4-generator.mjs](mp4-generator.mjs) (using .mjs for the homies). It did my best to add comments and keep it modular.
 
 The other files were pulled together hastily just so that I could do local testing.
 
